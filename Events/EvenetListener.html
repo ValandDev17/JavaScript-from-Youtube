@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+<body>
+    <ul id="images">
+        <li id="dog">
+            <img width="100px" src="https://imgs.search.brave.com/3xkDA1iTFbaUMzbawGnVNK0HiaA-sD0yfm020JgS9ts/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9icmVl/ZC1hc3NldHMud2lz/ZG9tcGFuZWwuY29t/L2RvZy9zdHJlZXQt/ZG9nLWluZGlhL0lu/ZGlhbl9TdHJlZXRf/RG9nMi5qcGc" alt="">
+        </li>
+        <li id="owl">
+            <img width="100px" src="https://imgs.search.brave.com/eBcWkdiPHVaKycIhl6eGcdCzrOC0XDyGyOhA0XMsc6Y/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5raWRhZGwuY29t/L0NoZWNrX291dF90/aGVzZV9hd2Vzb21l/X0luZGlhbl9lYWds/ZV9vd2xfZmFjdHNf/ZWI5MjgxYzA1MC5q/cGcud2VicA" alt="">            
+        </li>
+        <li id="cow">
+            <img width="100px" src="https://imgs.search.brave.com/raDQzNIa93dMR7JXq-Pz-jDp3I7M7ZNgdAomNlGAwNY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE1/NDAyNDM2Ny9waG90/by9pbmRpYW4tY293/cy1ydXJhbC1pbmRp/YS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9bktlQ0lvZHh5/d0txTkhuZllYQV9p/SlZxdHJza2hUV3Rl/QW5tMmYtV19IYz0" alt="">            
+        </li>
+        <li id="google" style="color: black;">
+            <a href="https://www.google.com/" style="color: black; font-weight: 500; font-weight: 600; text-decoration: none;">Google Link</a>
+        </li>
+    </ul>
+    
+</body>  
+<script>
+    // Old approach
+    // document.getElementById("dog").onclick = function(){
+        // alert("Indian Street Dog");
+    // }
+
+    // Latest approach
+    document.getElementById("images").addEventListener("click", function(){
+        // alert("Clicked inside the url");
+    },false)
+
+    // false = bubbling first display inside click details
+    // true = capturing first display outside click details
+    
+    // document.getElementById("owl").addEventListener("click", function(e){
+        // alert("Owl img clicked");
+    // e.stopPropagation(); //stop bubbling
+    // },false)
+
+    document.getElementById("google").addEventListener("click", function(e){
+        e.preventDefault();
+        // console.log("link clicked");
+    })
+    
+    // Key & mouse type event, defaultPrevented = form & anchor link default behaviour event prevent
+    // Type, timestamp, defaultPrevented
+    // target,ToElement, #srcElement,currentTarget
+
+    // clientX,clientY,screenX,screenY
+    // altkey,ctrlkey,shiftkey
+
+    document.querySelector("#images").addEventListener("click",function(e){
+        // console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if(e.target.tagName == "IMG" || "a"){
+            let removeIt = e.target.parentNode
+            removeIt.remove();
+        }       
+        // removeIt.parentNode.removeChild(removeIt);
+    },false)
+</script>
+</html>

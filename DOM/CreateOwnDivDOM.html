@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWN DIV ADD DOM</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const div = document.createElement("div");
+    console.log(div);;
+
+    div.className="main";
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title");
+    div.style.backgroundColor="orange";
+    div.style.color="white";    
+    div.style.padding = "12px";
+    // div.innerHTML = "Dev Valand"
+
+    const addText = document.createTextNode("Dev Valand");
+    div.appendChild(addText);
+    document.body.appendChild(div)
+
+</script>
+</html>
